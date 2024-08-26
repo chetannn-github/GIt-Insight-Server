@@ -21,7 +21,7 @@ app.use(cookieParser());
 
 // app.use(cors());
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://gitinsight.onrender.com/',
     methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Content-Length', 'X-Requested-With'],
     credentials: true,
