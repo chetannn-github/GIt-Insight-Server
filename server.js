@@ -11,6 +11,7 @@ import { connectToDB } from "./db/db.config.js";
 import "./Passport/githubAuth.js"
 import session from "express-session";
 import passport from "passport";
+import job from "./cron/cron.js";
 
 const app = express();
 
@@ -34,6 +35,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+job.start();
+app.get("/api/test",(req,res)=>{
+  res.send("test api to awake server");
+})
 app.use("/api/users", userRoutes);
 app.use("/api/explore", exploreRoutes);
 app.use("/api/auth",authRoutes)
